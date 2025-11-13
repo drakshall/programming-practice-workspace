@@ -37,8 +37,8 @@ class DoublyLinkedList{
         };
 
         void Append(std::string inputData){                                         // class method to append a node to the end of the LL
-            LinkedNode* tempPointer = new LinkedNode;                               // creates new node and temporarily points to its memory address
-            tempPointer -> arbitraryData = inputData;                               // takes the data input and writes it to the new node
+            LinkedNode* tempPointer = new LinkedNode;                               
+            tempPointer -> arbitraryData = inputData;                               
             tempPointer -> next = nullptr;                                          // this node will be the new tail so there's no next node to point to
             tempPointer -> prev = tail;                                             // points the new node's 'prev' pointer to the old tail node
 
@@ -53,7 +53,21 @@ class DoublyLinkedList{
         };
 
         void Insert(std::string inputData, int tempIndex, bool forwardBackward){    // method to insert a node at a specific position in the LL
-            LinkedNode* tempPointer = new LinkedNode;                               // creates new node and temporarily points to its memory address
+            LinkedNode* tempPointer = new LinkedNode;                               
+            tempPointer -> arbitraryData = inputData; 
+
+            switch(forwardBackward){
+                case 1:
+
+                case 0:
+
+                default:
+                std::cout << "debug - invalid input";
+                break;
+            }
+        };
+
+        void Search(std::string inputData, bool forwardBackward){
 
         };
 };
