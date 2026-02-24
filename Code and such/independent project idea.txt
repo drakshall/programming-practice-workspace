@@ -1,0 +1,27 @@
+independent project idea:
+- something that exhibits emergent complexity
+- maybe a mining simulation game? player plays as a mine owner and each worker is simulated in regards to their social lives & relationship to the means of production. 
+- 2D interface? Godot?
+- perhaps just simulate the material relations and disregard the social (insofar as they can be distinguished), taking account of the food workers need to survive, where the workers get that food from, the money paid by the mine/factory owners to workers & how that relates to their profits (simulate shareholder pressure?), the revenues and fixed + variable costs of the mine/factory.
+
+- simulate in the abstract the transition between traditional & industrial modes of production from the perspective of a mine owning tycoon, reflecting the player's actions in an emergent way through interrelated systems.
+^
+spit balling not strict requirements
+
+
+
+simplified
+
+simulate in the abstract the relationship between workers and the player's mine which reflects the player's actions in an emergent way through interrelated systems.
+
+workers working in a factory generate revenue, that revenue is given to the factory (the player) to be used as they see fit (reinvestment, wages, fixed costs) the player will be able to raise and lower wages to keep more or less of the surplus value to themselves, the amount of money available to workers in the form of wages effects their material conditions
+
+the workers themselves will be individual nodes that act within constraints defined by their conditions in regards to the player's mine. 
+There will have to be a clock to structure the logic, the game should begin with a given number of workers and a proportion of those workers will be 'born' (come of age to work in the mine) and will 'die' of natural causes (become too old to work in the mine) on a regular cycle. worker nodes all have a timer that decides when they 'die' of old age. workers could have a nutrition parameter that scales the rate their death timer drops at and decreases some specific revenue factor variable. 
+workers could have an experience value that scales with time spent working & their productivity modifier.
+
+
+implementation concepts:
+
+
+
