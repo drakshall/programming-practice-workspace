@@ -3,6 +3,7 @@ class BSTnode:
         self.key = key
         self.left = None
         self.right = None
+        self.height = 1
 # Class defining the structure of BST node objects
 
 class BST:
@@ -10,6 +11,12 @@ class BST:
         self.root = None
 
 #------------------------------------------- Private methods ------------------------------------------
+
+    def NodeHeight(node):
+        if not node:
+            return 0
+        return node.height
+
     def _Insertnode(self, node, key):
         if node is None:
             return BSTnode(key)
@@ -18,19 +25,22 @@ class BST:
                 node.left = self._Insertnode(node.left, key)
             elif key > node.key:
                 node.right = self._Insertnode(node.right, key)
+    
         return node
 # Recursive insertion method that performs a binary search to find the correct
 # position to insert a new node by comparing key values
   
-    def _Findnode(self, node, query, depth = 0):
+    def _FindNode(self, node, query, depth = 0):
         if node is None:
             return None
         elif node.key == query:
             return (node, depth)
         elif query < node.key:
-            return self._Findnode(node.left, query, depth + 1)
+            return self._FindNode(node.left, query, depth + 1)
         elif query > node.key:
-            return self._Findnode(node.right, query, depth + 1)
+            return self._FindNode(node.right, query, depth + 1)
+        
+
 # Recursive lookup method performing a binary search by comparing a node's key
 # value to a query value and recursing down the tree until a match is found while
 # incrementing an integer each step to find the depth of the node being searched for
@@ -71,13 +81,13 @@ class BST:
         self.root = self._Insertnode(self.root, key)
 
     def Find(self, query):
-        result = self._Findnode(self.root, query)
+        result = self._FindNode(self.root, query)
         if result:
             node, depth = result
             print(f"A node with the key: {node.key} is present at a depth of: {depth}")
             return (node.key, depth)
         print(f"No key with the value {query} is present")
-        return None
+        return depth
 
     def DeepestNode(self):
         nodes, depth = self._FindDeepestNode(self.root)
@@ -98,10 +108,10 @@ class BST:
 import random
 tree = BST()
 
-a = random.sample(range(1, 20000000), 10000000)
+a = random.sample(range(1, 200000), 100000)
 for i in a:
     tree.Insert(i)
 
 tree.DeepestNode()
 tree.Magnitude()
-
+tree.Find(15)
