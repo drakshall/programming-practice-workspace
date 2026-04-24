@@ -1,0 +1,187 @@
+[gd_scene load_steps=3 format=3 uid="uid://belqjjr6kytqn"]
+
+[ext_resource type="Script" uid="uid://diuoe4h6l3dgu" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="FontFile" uid="uid://bffr1avq02yv7" path="res://NotoColorEmoji-Regular.ttf" id="2_0e48y"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wtcfe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 224.0
+offset_bottom = 227.0
+
+[node name="MenuBar" type="MenuBar" parent="VBoxContainer"]
+layout_mode = 2
+flat = true
+
+[node name="PopupMenu" type="PopupMenu" parent="VBoxContainer/MenuBar"]
+oversampling_override = 1.0
+title = "My Menu"
+size = Vector2i(118, 100)
+item_count = 2
+item_0/text = "Menu Item 1"
+item_0/id = 0
+item_1/text = "Menu Item 2"
+item_1/id = 1
+
+[node name="PopupMenu2" type="PopupMenu" parent="VBoxContainer/MenuBar"]
+oversampling_override = 1.0
+title = "Project"
+size = Vector2i(106, 100)
+item_count = 3
+item_0/text = "Test Item 1"
+item_0/id = 0
+item_1/text = "Test Item 2"
+item_1/id = 1
+item_2/text = "Test Item 3"
+item_2/id = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "button 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "button 2"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "button 3"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+text = "Horizon 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+text = "Horizon 2"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+color = Color(1, 0.12156863, 1, 1)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🐛"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🎶"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🐛"
+
+[node name="Label4" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🎷"
+
+[node name="Label5" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "👀"
+
+[node name="Label6" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🐛"
+
+[node name="Label7" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "😊"
+
+[node name="Label8" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🌶️"
+
+[node name="Label9" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🏡"
+
+[node name="Label10" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "💕"
+
+[node name="Label11" type="Label" parent="VBoxContainer/HSplitContainer2/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0e48y")
+theme_override_font_sizes/font_size = 32
+text = "🐛"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 276.0
+offset_top = 8.0
+offset_right = 696.0
+offset_bottom = 464.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "How EVIL are you?"
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "not very"
+
+[node name="Button2" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "a little"
+
+[node name="Button3" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "quite"
+
+[node name="Button4" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "a fair bit"
+
+[node name="Button5" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "increasingly"
+
+[node name="Button6" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "EXTREMELY"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.94937295, 0.33891556, 0.8233828, 1)
+
+[connection signal="index_pressed" from="VBoxContainer/MenuBar/PopupMenu" to="." method="_on_popup_menu_index_pressed"]
+[connection signal="index_pressed" from="VBoxContainer/MenuBar/PopupMenu2" to="." method="_on_popup_menu_2_index_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button6" to="." method="_on_button_6_pressed"]
