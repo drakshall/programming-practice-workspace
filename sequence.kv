@@ -1,7 +1,6 @@
 InputNameForm:
 
-<InputNameForm@BoxLayout>
-
+<InputNameForm>
     BoxLayout:
 
         AnchorLayout:
@@ -18,6 +17,7 @@ InputNameForm:
                 font_size: 80
                 size_hint: (None,None)
                 size: self.texture_size
+                on_press: root.nameInputHandler()
 
 
 

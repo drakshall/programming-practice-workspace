@@ -9,3 +9,5 @@ mvp:
 - 5 stages with a win state at the end
 - win state records score & name to file
 - fail state occurs when timer runs out, no score recorded
+
+https://pybangle.wordpress.com/wp-content/uploads/2016/06/creating-apps-in-kivy.pdf
