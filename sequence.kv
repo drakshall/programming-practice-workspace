@@ -1,0 +1,24 @@
+InputNameForm:
+
+<InputNameForm@BoxLayout>
+
+    BoxLayout:
+
+        AnchorLayout:
+            anchor_y: 'center'
+            TextInput:
+                size_hint_y: None
+                height: self.minimum_height
+                font_size: 200
+
+        AnchorLayout:
+            anchor_y: 'center'
+            Button:
+                text: "Choose Name"
+                font_size: 80
+                size_hint: (None,None)
+                size: self.texture_size
+
+
+
+

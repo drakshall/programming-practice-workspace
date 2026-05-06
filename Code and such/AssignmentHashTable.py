@@ -1,56 +1,56 @@
 class HashTable:                                    
-    def __init__(self, size):                                       # Size of table manually specified
+    def __init__(self, size):                             # Size of table manually specified
         self.size = size
         self.table = [[] for _ in range(size)]
 
     def hashMeth(self, key):
-        # charSum = 0                                               # Original hash function summing character ASCII values.
-        # for char in key:                                          # Switched out for python's hash function because of poor distribution.
+        # charSum = 0                                     # Original hash function summing character ASCII values.
+        # for char in key:                                # Switched out for python's hash function because of poor distribution.
         #     charSum += ord(char)
         # return charSum % self.size
         return hash(key) % self.size
 
-    def insert(self, key, value):                                   # Uses the hash method to hash the key of an input tuple and loads both  
-        index = self.hashMeth(key)                                  # values into the index associated with the hashed key scaled to the 
-        bucket = self.table[index]                                  # size of the table.
+    def insert(self, key, value):                         # Uses the hash method to hash the key of an input tuple and loads both  
+        index = self.hashMeth(key)                        # values into the index associated with the hashed key scaled to the 
+        bucket = self.table[index]                        # size of the table.
         for i, (existingKey, _) in enumerate(bucket):
-            if existingKey == key:                                  # If the key is already present updates the entry.
+            if existingKey == key:                        # If the key is already present updates the entry.
                 bucket[i] = (key, value)
                 return
         bucket.append((key, value))
  
-    def retrieve(self, key):                                        # Uses the hash method to hash a key and find the index where the associated
-        index = self.hashMeth(key)                                  # tuple is stored then compares the query key with the key(s) in that index
-        bucket = self.table[index]                                  # until a match is found then returns that associated value.
+    def retrieve(self, key):                              # Uses the hash method to hash a key and find the index where the associated
+        index = self.hashMeth(key)                        # tuple is stored then compares the query key with the key(s) in that index
+        bucket = self.table[index]                        # until a match is found then returns that associated value.
         for existingKey, existingValue in bucket:
             if existingKey == key:
                 return existingValue
         raise KeyError(f"Key '{key}' not found")
     
-    def delete(self, key):                                          # Uses the hash method to hash a key and find the index where the associated
-        index = self.hashMeth(key)                                  # tuple is stored then compares the query key with the key(s) in that index
-        bucket = self.table[index]                                  # until a match is found then pops that value out of the array.
+    def delete(self, key):                                # Uses the hash method to hash a key and find the index where the associated
+        index = self.hashMeth(key)                        # tuple is stored then compares the query key with the key(s) in that index
+        bucket = self.table[index]                        # until a match is found then pops that value out of the array.
         for i, (existingKey, _) in enumerate(bucket):
             if existingKey == key:
                 deletedValue = bucket.pop(i)[1]
                 return deletedValue
         raise KeyError(f"Key '{key}' not found")
     
-    def listEntries(self):                                          # Iterates through the hash table to make a list of every tuple then prints it.
+    def listEntries(self):                                # Iterates through the hash table to make a list of every tuple then prints it.
         allEntries = []
         for bucket in self.table:
             for key, value in bucket:
                 allEntries.append((key, value))
         return print(allEntries)
     
-    def analytics(self):
-        chainLengths = [len(bucket) for bucket in self.table]               # Measures and prints various metrics of the hash table.
-        bucketCount = len(chainLengths)
-        emptyBucketCount = sum(1 for length in chainLengths if length == 0)
-        nonemptyBucketCount = bucketCount - emptyBucketCount
-        maxChain = max(chainLengths) if chainLengths else 0
+    def analytics(self):                                                    # Measures and prints various metrics of the hash table.
+        chainLengths = [len(bucket) for bucket in self.table]               # Counts the depth of the chains in each bucket.
+        bucketCount = len(chainLengths)                                     # Counts the number of chains including ones with a length of 0.
+        emptyBucketCount = sum(1 for length in chainLengths if length == 0) # Counts the number of chains with a length of 0.
+        nonemptyBucketCount = bucketCount - emptyBucketCount                # Rest of code is self explanatory.
+        maxChain = max(chainLengths) if chainLengths else 0                
         minChain = min(chainLengths) if chainLengths else 0
-        entryCount = sum(chainLengths)
+        entryCount = sum(chainLengths)                                      
         loadFactor = entryCount / bucketCount
         print(f"Bucket Count: {bucketCount}")
         print(f"Empty Buckets: {emptyBucketCount}")
@@ -140,19 +140,25 @@ import time
 import random
 import string
 
-start = time.time()
 
-Table = HashTable(9999)
-length = 16
-keyCount = 9999
+
+Table = HashTable(100000)                                                 # Constructs hash table & defines number of buckets.
+
+length = 16                                                               # Defines length of generated keys.
+keyCount = 4500                                                          # Defines number of generated keys.
+
+start = time.time()                                                       # Starts measuring the time in seconds.
 for i in range(keyCount):
-    randomKey = ''.join(random.choices(string.ascii_letters, k=length))
-    randomValue = random.randint(0, 20000)
-    Table.insert(randomKey, randomValue)
-Table.analytics()
+    randomKey = ''.join(random.choices(string.ascii_letters, k=length))   # Generates pseudo random key string.
+    randomValue = random.randint(0, 1000000)                              # Generates pseudo random value integers.
+    Table.insert(randomKey, randomValue)                                  # Inserts generated tuple into hash table.
+end = time.time()                                                         # Stops measuring the time in seconds.
+
+print(f"Total runtime of the insert operation is {end - start} seconds")
+with open("TimeLog.txt", "a") as f:
+  f.write(f"{end - start}\n")                                             # Writes the time taken for the insertion to a log file.
+
+# Table.analytics()
 #Table.listEntries()
 
-end = time.time()
-print(f"Total runtime of the program is {end - start} seconds")
-with open("TimeLog.txt", "a") as f:
-  f.write(f"{end - start}\n")
+
