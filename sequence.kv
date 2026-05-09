@@ -1,16 +1,43 @@
-InputNameForm:
+SequenceRoot:
 
-<InputNameForm@BoxLayout>
+<SequenceRoot>:
+    MainMenuSelect
 
+<MainMenuSelect>:
     BoxLayout:
+        orientation: "vertical"
+        AnchorLayout:
+            anchor_x: 'center'
+            Label:
+                text: "The Spectacular Sequence Selector"
+                font_size: 120
+        AnchorLayout:
+            anchor_x: 'center'
+            Button:
+                text: "PLAY!"
+                font_size: 120
+                size_hint: (None,None)
+                size: self.texture_size
+                on_press: app.root.showNameForm()
+        AnchorLayout:
+            anchor_x: 'center'
+            Button:
+                text: "High Scores"
+                font_size: 120
+                size_hint: (None,None)
+                size: self.texture_size
+                on_press: app.root.showLeaderboard()
 
+<InputNameForm>:
+    nameInput:inputBox
+    BoxLayout:
         AnchorLayout:
             anchor_y: 'center'
             TextInput:
+                id: inputBox
                 size_hint_y: None
                 height: self.minimum_height
                 font_size: 200
-
         AnchorLayout:
             anchor_y: 'center'
             Button:
@@ -18,7 +45,27 @@ InputNameForm:
                 font_size: 80
                 size_hint: (None,None)
                 size: self.texture_size
+                on_press: root.recordName()
 
-
-
-
+<LeaderboardPage>:
+    listScores:scoreList
+    on_parent: self.displayScores()
+    BoxLayout:
+        orientation: "vertical"
+        AnchorLayout:
+            anchor_x: 'center'
+            Label:
+                text: "Top Scores:"
+                font_size: 120
+        RecycleView:
+            id: scoreList
+            viewclass: 'Label'   
+            scroll_type: ['bars', 'content']
+            scroll_wheel_distance: 20
+            RecycleBoxLayout:
+                default_size: None, dp(80)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+                spacing: dp(1)

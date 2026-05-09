@@ -1,4 +1,4 @@
 
 give creatures hunger parameters
-after given time the hungriest creature dies and the two best creatures breed to replace it
-food is placed where that creature dies
+after given time the hungriest creatures die and creatures breed to replace it
+food is placed where creatures die
