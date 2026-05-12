@@ -19,7 +19,15 @@ class SequenceRoot(BoxLayout):
 
     def showHome(self):
         self.clear_widgets()
+        self.add_widget(MainMenuSelect())
 
+    def showRules(self):
+        self.clear_widgets()
+        self.add_widget(RulesPage())
+    
+    def showSequenceGame1(self):
+        self.clear_widgets()
+        self.add_widget(SequenceGame1())
 
 class MainMenuSelect(BoxLayout):
     pass
@@ -28,6 +36,9 @@ class InputNameForm(BoxLayout):
     nameInput = ObjectProperty()
     def recordName(self):
         print(self.nameInput.text)
+
+class RulesPage(BoxLayout):
+    pass
 
 class LeaderboardPage(BoxLayout):
     listScores = ObjectProperty()
@@ -47,6 +58,9 @@ class LeaderboardPage(BoxLayout):
         list = self.listScores
         list.data = leaderboardTemp
         list.data = [{'text': f"{item['name']}: {item['score']}"} for item in leaderboardTemp]
+
+class SequenceGame1(BoxLayout):
+    pass
 
 if __name__ == '__main__':
     SequenceApp().run()

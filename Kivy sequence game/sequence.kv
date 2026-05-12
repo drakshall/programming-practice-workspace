@@ -46,6 +46,7 @@ SequenceRoot:
                 size_hint: (None,None)
                 size: self.texture_size
                 on_press: root.recordName()
+                on_press: app.root.showRules()
 
 <LeaderboardPage>:
     listScores:scoreList
@@ -68,4 +69,29 @@ SequenceRoot:
                 size_hint_y: None
                 height: self.minimum_height
                 orientation: 'vertical'
-                spacing: dp(1)
+                spacing: dp(10)
+        
+<RulesPage>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "GAME RULES"
+            font_size: 120
+        Label:
+            text: "- The game will take 1 minute (60 seconds)"
+            font_size: 80
+        Label:
+            text: "- If time runs out you lose!"
+            font_size: 80
+        Label:
+            text: "- If you beat 5 levels before the time runs out you win!"
+            font_size: 80
+        Button:
+            text: "CONTINUE"
+            font_size: 120
+            on_press: app.root.showSequenceGame1()
+
+<SequenceGame1>:
+    BoxLayout
+        Label:
+            text: "placeholder"
