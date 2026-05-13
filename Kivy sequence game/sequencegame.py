@@ -57,24 +57,17 @@ class RulesPage(BoxLayout):
 class LeaderboardPage(FloatLayout):
     listScores = ObjectProperty()
     def displayScores(self):
-        leaderboardTemp = []
+        leaderboardArray = []
         filename = "sequenceleaderboard.txt"
         if not os.path.exists(filename):
             open(filename, 'w').close()
         with open(filename) as f:
             for line in f:
                 line = line.strip()
-                if line:
-                    parts = line.split(',')
-                    name, score = parts
-                    leaderboardTemp.append({
-                        'name': name,
-                        'score': score
-                    })
-        leaderboardTemp.sort(key=lambda x: int(x['score']), reverse=True)
-        list = self.listScores
-        list.data = leaderboardTemp
-        list.data = [{'text': f"{item['name']}: {item['score']}"} for item in leaderboardTemp]
+                name, score = line.split(',')
+                leaderboardArray.append({'text': f"{name}: {score}"})
+        leaderboardArray.sort(key=lambda x: int(x['text'].split(':')[1].strip()), reverse=True)
+        self.listScores.data = leaderboardArray
 
 class SequenceGame(FloatLayout):
     timerLabel = ObjectProperty()
@@ -112,7 +105,6 @@ class SequenceGame(FloatLayout):
 
     def timer(self, dt):
         self.timeInt -= 1
-        print (self.timeInt)
         self.timerLabel.text = (f"{self.timeInt}")
         if self.timeInt == 0 and self.levelCount != 5:
             self.parent.showFailPage()
