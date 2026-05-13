@@ -7,7 +7,9 @@ mvp:
 - 3 character 'name' input
 - button presses give feedback, incorrect choices turn red and subtract 5 seconds from timer, correct choices turn green, a sequence must be succesfully completed to go on to next stage
 - 5 stages with a win state at the end
-- win state records score & name to file - Partial
+- win state records score & name to file
 - fail state occurs when timer runs out, no score recorded
 
 https://pybangle.wordpress.com/wp-content/uploads/2016/06/creating-apps-in-kivy.pdf
+
+

@@ -51,25 +51,31 @@ SequenceRoot:
 <LeaderboardPage>:
     listScores:scoreList
     on_parent: self.displayScores()
-    BoxLayout:
-        orientation: "vertical"
-        AnchorLayout:
-            anchor_x: 'center'
+    FloatLayout:
+        Button:
+            text: "Main Menu"
+            font_size: 60
+            size_hint: (None, None) 
+            size: self.texture_size
+            pos_hint: {'x': 0, 'top': 1}
+            on_press: app.root.showHome()
+        BoxLayout:
+            orientation: "vertical"
             Label:
                 text: "Top Scores:"
                 font_size: 120
-        RecycleView:
-            id: scoreList
-            viewclass: 'Label'   
-            scroll_type: ['bars', 'content']
-            scroll_wheel_distance: 20
-            RecycleBoxLayout:
-                default_size: None, dp(80)
-                default_size_hint: 1, None
-                size_hint_y: None
-                height: self.minimum_height
-                orientation: 'vertical'
-                spacing: dp(10)
+            RecycleView:
+                id: scoreList
+                viewclass: 'Label'   
+                scroll_type: ['bars', 'content']
+                scroll_wheel_distance: 20
+                RecycleBoxLayout:
+                    default_size: None, dp(80)
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'
+                    spacing: dp(10)
         
 <RulesPage>:
     BoxLayout:
@@ -78,7 +84,7 @@ SequenceRoot:
             text: "GAME RULES"
             font_size: 120
         Label:
-            text: "- The game will take 1 minute (60 seconds)"
+            text: "- The game will take 50 seconds."
             font_size: 80
         Label:
             text: "- If time runs out you lose!"
@@ -86,12 +92,53 @@ SequenceRoot:
         Label:
             text: "- If you beat 5 levels before the time runs out you win!"
             font_size: 80
+        Label:
+            text: "- The game begins when you press the first button."
+            font_size: 80
         Button:
             text: "CONTINUE"
             font_size: 120
             on_press: app.root.showSequenceGame1()
 
 <SequenceGame1>:
+    timerLabel: timerLbl
+    buttonContainer:btnContainer
+    FloatLayout:
+        Label:
+            id: timerLbl
+            font_size: 60
+            size_hint_y: None
+            text: "50"
+            pos_hint: {'top': 1}
+        FloatLayout:
+            id: btnContainer
+            Button:
+                id: btn1
+                text: "Btn 1"
+                size_hint: (0.1, 0.1)
+            Button:
+                id: btn2
+                text: "Btn 2"
+                size_hint: (0.1, 0.1)
+            Button:
+                id: btn3
+                text: "Btn 3"
+                size_hint: (0.1, 0.1)
+            Button:
+                id: btn4
+                text: "Btn 4"
+                size_hint: (0.1, 0.1)
+            Button:
+                id: btn5
+                text: "Btn 5"
+                size_hint: (0.1, 0.1)
+
+<FailPage>:
     BoxLayout
         Label:
-            text: "placeholder"
+            text: "Time over! you lose!"
+
+<SuccessPage>:
+    BoxLayout
+        Label:
+            text: "all done! you win!"
