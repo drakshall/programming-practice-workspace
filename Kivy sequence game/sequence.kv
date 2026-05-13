@@ -90,55 +90,83 @@ SequenceRoot:
             text: "- If time runs out you lose!"
             font_size: 80
         Label:
-            text: "- If you beat 5 levels before the time runs out you win!"
+            text: "- If you beat 4 levels before the time runs out you win!"
             font_size: 80
         Label:
-            text: "- The game begins when you press the first button."
+            text: "- You must rank all items from smallest to largest."
             font_size: 80
         Button:
             text: "CONTINUE"
             font_size: 120
-            on_press: app.root.showSequenceGame1()
+            on_press: app.root.showSequenceGame()
 
-<SequenceGame1>:
+<SequenceGame>:
     timerLabel: timerLbl
     buttonContainer:btnContainer
-    FloatLayout:
+    BoxLayout:
+        orientation: 'vertical'
         Label:
             id: timerLbl
             font_size: 60
             size_hint_y: None
+            height: 80 
             text: "50"
-            pos_hint: {'top': 1}
         FloatLayout:
             id: btnContainer
             Button:
-                id: btn1
                 text: "Btn 1"
+                font_size: 60
                 size_hint: (0.1, 0.1)
+                on_press: root.sequenceButton(5)
             Button:
-                id: btn2
                 text: "Btn 2"
+                font_size: 60
                 size_hint: (0.1, 0.1)
+                on_press: root.sequenceButton(4)
             Button:
-                id: btn3
                 text: "Btn 3"
+                font_size: 60
                 size_hint: (0.1, 0.1)
+                on_press: root.sequenceButton(3)
             Button:
-                id: btn4
                 text: "Btn 4"
+                font_size: 60
                 size_hint: (0.1, 0.1)
+                on_press: root.sequenceButton(2)
             Button:
-                id: btn5
                 text: "Btn 5"
+                font_size: 60
                 size_hint: (0.1, 0.1)
+                on_press: root.sequenceButton(1)
 
 <FailPage>:
-    BoxLayout
+    FloatLayout:
         Label:
             text: "Time over! you lose!"
+            font_size: 120
+        Button:
+            text: "Main Menu"
+            font_size: 60
+            size_hint: (None, None) 
+            size: self.texture_size
+            pos_hint: {'x': 0, 'top': 1}
+            on_press: app.root.showHome()
 
 <SuccessPage>:
-    BoxLayout
-        Label:
-            text: "all done! you win!"
+    FloatLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: "all done! you win!"
+                font_size: 120
+            Label:
+                id: winnerMessage
+                text: "(username) your score was (score)"
+                font_size: 80
+        Button:
+            text: "Main Menu"
+            font_size: 60
+            size_hint: (None, None) 
+            size: self.texture_size
+            pos_hint: {'x': 0, 'top': 1}
+            on_press: app.root.showHome()
