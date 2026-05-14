@@ -46,7 +46,7 @@ class SequenceRoot(BoxLayout):                                                  
 class MainMenuSelect(BoxLayout):                                                                # No logic because changing screens is handled by previous class.
     pass                                                                                        # Layout defined in kivy file.
 
-class InputNameForm(BoxLayout):                                                                 # Takes user inputted name, ensures it adheres to length rules, then stores
+class InputNameForm(BoxLayout):                                                                 # Takes user inputed name, ensures it adheres to length rules, then stores
     nameInput = ObjectProperty()                                                                # the string in the 'nameBearer' variable with the SequenceRoot class. 
     def recordName(self):                                                                       # As the orchestration layer the instance of SequenceRoot is never cleared 
         if 1 <= len(self.nameInput.text) <= 3:                                                  # in the way its children widgets are which allows it to store variables 
@@ -58,8 +58,8 @@ class RulesPage(BoxLayout):
 
 class LeaderboardPage(FloatLayout):                                                             # Displays a sorted list of user scores.   
     listScores = ObjectProperty()                                                               # Variables are passed between kivy and python using the ObjectProperty
-    def displayScores(self):                                                                    # class rather than direct referencing to better seperate out concerns.
-        leaderboardArray = []
+    def displayScores(self):                                                                    # class rather than direct referencing to better seperate out logic
+        leaderboardArray = []                                                                   # and structure concerns.
         with open("sequenceLeaderboard.txt") as f:                                              # Reads leaderboard information from file, splits each line and
             for line in f:                                                                      # arranges the elements into a single entry dictionary formatted for
                 line = line.strip()                                                             # the kivy RecycleView widget. Those dicts are loaded into an array
@@ -100,8 +100,8 @@ class SequenceGame(FloatLayout):                                                
                 overlap = False
                 for (px, py) in ButtonPositions:
                     if self.overlapCheck(x, y, widthH, heightH, px, py, widthH, heightH):       # Calls overlap checker method to compare the corner positions of the current iteration's
-                        overlap = True
-                        break                                                                   # buttons to the corner positions of each previously placed button.
+                        overlap = True                                                          # buttons to the corner positions of each previously placed button.
+                        break                                                                   
                 if not overlap:
                     ButtonPositions.append((x, y))                                              # Stores button position co-ords in a list for future comparison.
                     child.pos_hint = {'x': x, 'y': y}                                           # Places button at the randomised, non-colliding co-ords.
@@ -154,7 +154,7 @@ class SuccessPage(FloatLayout):
         super().__init__(**kwargs)
         self.displayWinnerMessage()                                                             # Calls method on page load.
 
-    def displayWinnerMessage(self):                                                             # Extracts the user's score and name as the final entries from the leaderboard file and applies them to the
+    def displayWinnerMessage(self):                                                             # Extracts the user's score and name as the final entries from the leaderboard file
         with open("sequenceLeaderboard.txt", "r") as f:                                         # and applies them to the victory message widget text.
             lines = f.readlines()
             lastLine = lines[-1].strip()
