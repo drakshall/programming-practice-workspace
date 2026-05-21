@@ -87,7 +87,7 @@ class SequenceGame(FloatLayout):                                                
         with open(self.filename) as f:
             for i, line in enumerate(f):
                 sequenceDict[i] = line.strip()                                                  # Loads the sequence data stored in text files and indexes them by their line index.
-        widthH = 0.15                                        
+        widthH = 0.2                                        
         heightH = 0.1
         maxX = 1 - widthH
         maxY = 1 - heightH                                                                      # Ensures generated box placements dont clip off-screen.
@@ -129,7 +129,7 @@ class SequenceGame(FloatLayout):                                                
             self.buttonCountLabel.text = (f"{self.buttonCount}")                                # as the number of correct guesses on the screen, otherwise button count is decremented.
             if self.buttonCount == 5:                                                           
                 self.levelCount += 1                                                            # If the last button in the sequence is pressed the level count is incremented, and if that
-                if self.levelCount == 5:                                                        # was the last level the user's name and score are recorded to the leaderboard and the user
+                if self.levelCount == 6:                                                        # was the last level the user's name and score are recorded to the leaderboard and the user
                     nameBearer = self.parent.nameBearer                                         # is shown the victory screen.
                     with open("sequenceLeaderboard.txt", "a") as file:
                         file.write(f"{nameBearer},{self.timeInt}\n") 

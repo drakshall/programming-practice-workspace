@@ -1,0 +1,35 @@
+<CARoot>:
+    FloatLayout:
+        GridWidget:
+            id: grid
+            size_hint: 1, 0.9
+            pos_hint: {'y': 0.1}
+        BoxLayout:
+            size_hint_y: 0.1
+            height: 60   
+            pos_hint: {'y': 0}
+            padding: 5
+            spacing: 10
+            Spinner:
+                id: rule_spinner
+                text: 'Class 4'
+                values: ['Class 1', 'Class 2', 'Class 3', 'Class 4']
+                size_hint_x: 0.4
+                on_text: app.root.ids.grid.setRule(self.text)
+            ToggleButton:
+                text: 'Run'
+                size_hint_x: None
+                width: 80   # fixed width
+                on_press: 
+                    if self.state == 'down': app.root.ids.grid.startSimulation()
+                    else: app.root.ids.grid.stopSimulation()
+            Button:
+                text: 'Step'
+                size_hint_x: None
+                width: 80
+                on_press: app.root.ids.grid.step()
+            Button:
+                text: 'Randomise'
+                size_hint_x: None
+                width: 100
+                on_press: app.root.ids.grid.randomize()
