@@ -4,12 +4,12 @@ mvp:
 - menu with 'play' and 'scores' buttons - DONE
 - timer counting down that can be converted into score - DONE
 - generic sequence game template that can be adapted into a number of different styles of presentation - DONE
-- 3 character 'name' input
-- button presses give feedback, incorrect choices turn red, correct choices turn green, a sequence must be succesfully completed to go on to next stage
+- 3 character 'name' input - DONE
+- button presses give feedback, incorrect choices turn red, correct choices turn green, a sequence must be succesfully completed to go on to next stage - PARTIAL
 - 4 stages with a win state at the end - DONE
-- win state records score & name to file
+- win state records score & name to file - DONE
 - fail state occurs when timer runs out, no score recorded - DONE
 
-https://pybangle.wordpress.com/wp-content/uploads/2016/06/creating-apps-in-kivy.pdf
+
 
 
