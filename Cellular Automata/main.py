@@ -1,17 +1,17 @@
-# main.py
+# Defines the app root and orchestrates the running of the program
+
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 from GridWidget import GridWidget   
 
 
-
-class CARoot(BoxLayout):
+class UIRoot(FloatLayout):
     pass
 
-class CAApp(App):
+class UIApp(App):
     def build(self):
-        return CARoot()
+        return UIRoot()
 
 if __name__ == '__main__':
-    CAApp().run()
+    UIApp().run()

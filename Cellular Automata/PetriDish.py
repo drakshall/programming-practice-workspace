@@ -1,3 +1,5 @@
+# Defines Underlying automaton logic and provides interface for control.
+
 import numpy as np
 
 def MooreNeighbourCount(grid):
@@ -9,9 +11,9 @@ def MooreNeighbourCount(grid):
             np.roll(grid, (-1,  1), (0, 1)) +
             np.roll(grid, (-1,  0), (0, 1)) +
             np.roll(grid, (-1, -1), (0, 1)))
-# Returns a 2D array with every element corresponding to a cell in the actual
-# grid, each of these elements contains the number of live cells adjacent to
-# the corresponding cell in the actual grid.
+# Returns a 2D array with every element corresponding to a cell in the grid
+# each of these elements contains the number of live cells adjacent to the
+# corresponding cell in the grid.
 
 
 def applyRule(grid, ruleName):
