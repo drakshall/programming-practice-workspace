@@ -1,4 +1,5 @@
-# Defines the custom Kivy widget that draws the grid and controls the simulation.
+# Defines the custom Kivy widget that draws the grid and controls the simulation as
+# well as the button methods to control the simulation through the UI
 
 import numpy as np
 from kivy.uix.widget import Widget
@@ -16,7 +17,6 @@ class GridWidget(Widget):
         self.grid = np.random.choice([0, 1], size=(rows, cols), p=[0.5, 0.5])
 # Sets each cells starting state with a 50% probability of being either alive or dead.
         self.running = False
-# Controls when real time simulation is enabled
         self.ruleName = "Class 4"
         self.bind(pos=self.redraw, size=self.redraw)
 # Forces the grid to redraw when the window is moved or resized because the redraw
@@ -36,15 +36,15 @@ class GridWidget(Widget):
                     x = self.x + j * self.cellSize
                     y = self.y + self.rows * self.cellSize - (i+1) * self.cellSize
                     Rectangle(pos=(x, y), size=(self.cellSize, self.cellSize))
-# Clears the canvas and redraws the cell rectangles based on the current grid.
-# Called whenever the grid composition or widget geometry changes.
+# Clears the widget canvas and redraws the cell rectangles based on the currently defined.
+# grid, called whenever the grid composition or widget geometry changes.
 
     def _computeNext(self):
         self.grid = applyRule(self.grid, self.ruleName)
         self.redraw()
-# Calls applyRule method for the current grid state from the PetriDish file and
-# updates the grid with returned matrix.
-# Internal method used by both real time and single step methods.
+# Calls applyRule method for the current grid state from the PetriDish file based on the
+# selected class of automaton and updates the displayed grid with the returned matrix.
+# Internal method used by both real time and single step button methods.
 
     def updateGeneration(self, dt=None):
         if not self.running:
