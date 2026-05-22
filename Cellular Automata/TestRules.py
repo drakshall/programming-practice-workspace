@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 from PetriDish import applyRule
 
 
-def runTest(ruleName, steps=200, gridSize=50):
-# Runs a simulation for the given rule and records then returns the grid history.
-# Steps control how long the simulation is run for.
+def _runTest(ruleName, steps=200, gridSize=50):
+# Internal method that runs a simulation for the given rule and records then returns the grid history.
     grid = np.random.choice([0, 1], size=(gridSize, gridSize), p=[0.5, 0.5])
 # Randomises start conditions with each cell having a 50% chance of being alive.
     history = [grid.copy()]
@@ -21,7 +20,7 @@ def testUniformity(ruleName, steps, gridSize):
 # Tests whether rules cause random starting conditions to converge into a uniform state,
 # either all alive or dead.
     print(f"\n=== Testing Uniformity of {ruleName} rule ===")
-    history = runTest(ruleName, steps, gridSize)
+    history = _runTest(ruleName, steps, gridSize)
     final = history[-1]
     unique = np.unique(final)
 # Checks if elements in the final grid matrix are uniform.
@@ -46,7 +45,7 @@ def testRepetition(ruleName, steps, gridSize):
     start = time.time()
 # Tests whether random conditions result in oscillating behaviour, such as that typical of class 2 behaviour.
     print(f"\n=== Testing Repetition of {ruleName} rule ===")
-    history = runTest(ruleName, steps, gridSize)
+    history = _runTest(ruleName, steps, gridSize)
     periodDetected = None
     for period in range(2, (steps//2)):
         for offset in range(1, len(history) - period):
@@ -100,7 +99,7 @@ def testSensitivity(ruleName, steps, gridSize):
 def testDensity(ruleName, steps, gridSize):
 # Method that computes and plots a graph of the density of living cells in each generation of a test.
 
-    history = runTest(ruleName, steps, gridSize)
+    history = _runTest(ruleName, steps, gridSize)
     densities = [np.mean(grid) for grid in history]   
     generations = range(len(history))
     print(f"\n=== Testing Density of {ruleName} Rule ===")
@@ -117,5 +116,8 @@ def testDensity(ruleName, steps, gridSize):
     print(f"Std deviation: {np.std(densities):.3f}")
     print(f"Min: {np.min(densities):.3f}, Max: {np.max(densities):.3f}")
 
-testUniformity("Class 1", 50, 50)
-testDensity("Class 1", 50, 50)
+classes = ["Class 1","Class 2","Class 3","Class 4"]
+for rule in classes:
+    testDensity(rule, 1000, 50)
+
+

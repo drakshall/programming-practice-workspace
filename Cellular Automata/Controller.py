@@ -6,6 +6,20 @@ from kivy.uix.widget import Widget
 from kivy.graphics import Rectangle, Color
 from kivy.clock import Clock
 from PetriDish import applyRule
+from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
+from kivy.lang import Builder
+from kivy.config import Config
+
+#Config.set('graphics', 'width', '800')
+#Config.set('graphics', 'height', '890')
+
+class UIRoot(FloatLayout):
+    pass
+class UIApp(App):
+    def build(self):
+        return UIRoot()
+# Classes define the app root and orchestrate the running of the program.
 
 class GridWidget(Widget):
     def __init__(self, rows=80, cols=80, cellSize=10, **kwargs):
@@ -19,7 +33,7 @@ class GridWidget(Widget):
         self.running = False
         self.ruleName = "Class 4"
         self.bind(pos=self.redraw, size=self.redraw)
-# Forces the grid to redraw when the window is moved or resized because the redraw
+# Forces the grid to redraw when the widget is resized because the redraw
 # method relies on widget size values to draw properly.
         Clock.schedule_once(self.redraw, 0)
 # Ensures starting grid renders properly once relevant parameters are set.
@@ -78,3 +92,6 @@ class GridWidget(Widget):
         self.randomise()
 # Sets the current rule to whatever is selected in the Kivy dropdown box.
 
+
+if __name__ == '__main__':
+    UIApp().run()
