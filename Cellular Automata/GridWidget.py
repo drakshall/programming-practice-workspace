@@ -8,16 +8,15 @@ from PetriDish import applyRule
 
 class GridWidget(Widget):
     def __init__(self, rows=80, cols=80, cellSize=10, **kwargs):
+# Size of grid in number of cells and visual size of cells in pixels.
         super().__init__(**kwargs)
         self.rows = rows
         self.cols = cols
-# Controls size of grid in number of cells.
         self.cellSize = cellSize
-# Controls visual size of cells in pixels.
         self.grid = np.random.choice([0, 1], size=(rows, cols), p=[0.5, 0.5])
 # Sets each cells starting state with a 50% probability of being either alive or dead.
         self.running = False
-# Boolean controls when real time simulation is enabled
+# Controls when real time simulation is enabled
         self.ruleName = "Class 4"
         self.bind(pos=self.redraw, size=self.redraw)
 # Forces the grid to redraw when the window is moved or resized because the redraw
@@ -43,7 +42,8 @@ class GridWidget(Widget):
     def _computeNext(self):
         self.grid = applyRule(self.grid, self.ruleName)
         self.redraw()
-# Calls update method from the PetriDish file and updates the grid with returned matrix.
+# Calls applyRule method for the current grid state from the PetriDish file and
+# updates the grid with returned matrix.
 # Internal method used by both real time and single step methods.
 
     def updateGeneration(self, dt=None):

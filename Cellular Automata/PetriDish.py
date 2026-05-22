@@ -1,4 +1,4 @@
-# Defines Underlying automaton logic and provides interface for control.
+# Defines and facilitates underlying automaton logic.
 
 import numpy as np
 
@@ -11,34 +11,34 @@ def MooreNeighbourCount(grid):
             np.roll(grid, (-1,  1), (0, 1)) +
             np.roll(grid, (-1,  0), (0, 1)) +
             np.roll(grid, (-1, -1), (0, 1)))
-# Returns a 2D array with every element corresponding to a cell in the grid
+# Returns a matrix with every element corresponding to a cell in the original grid.
 # each of these elements contains the number of live cells adjacent to the
-# corresponding cell in the grid.
+# corresponding original cell.
 
 
 def applyRule(grid, ruleName):
     neighbours = MooreNeighbourCount(grid)
     newGrid = np.zeros_like(grid)
+# Empty placeholder grid.
 
     if ruleName == "Class 1":
         newGrid = (neighbours >= 4).astype(np.uint8)
-# Compares the neighbour count value associated with every cell in the grid to 
-# see if they are 4 or greater, if so the cell is set to 1 (alive), and if not
-# it is set to 0 (dead).
+# Compares the neighbour count value associated with every cell in the neighbour matrix  
+# to see if they are 4 or greater, if so the corresponding grid cell in the placeholder 
+# is set to 1 (alive), and if not it is set to 0 (dead).
 
     elif ruleName == "Class 2":
         newGrid = grid.copy()
         newGrid[neighbours == 3] = 1 - newGrid[neighbours == 3]
-# Selects cells with 3 neighbours and flips the values of those cells,
-# (1 - 0 = 1 and 1 - 1 = 0).
-# Also copies the grid into a new variable for consistency with implementation
-# of other rules, not strictly necessary for this kind of operation.
+# Selects cells with 3 neighbours from the matrix and flips the values of corresponding,
+# grid cells. Also copies the grid into a new variable for consistency with implementation
+# of other rules.
 
     elif ruleName == "Class 3":
         lookupTable = np.array([0, 1, 1, 1, 0, 0, 0, 0, 0], dtype=np.uint8)
         newGrid = lookupTable[neighbours]
-# Takes the neighbour count of each cell and uses that value as an index in this
-# lookup table to determine whether their value is set to 1 (alive) or 0 (dead).
+# Takes the neighbour count from matrix and uses that value as an index in this lookup
+# table to determine whether their value is set to 1 (alive) or 0 (dead).
 
     elif ruleName == "Class 4":
         birth = (grid == 0) & (neighbours == 3)
