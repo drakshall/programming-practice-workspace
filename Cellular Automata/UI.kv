@@ -32,4 +32,29 @@
                 size_hint_x: None
                 width: 100
                 on_press: app.root.ids.grid.randomise()
-
+            Label:
+                text: 'Width:'
+                size_hint_x: None
+                width: 40
+            Label:
+                text: 'W:'
+                size_hint_x: None
+                width: 25
+            TextInput:
+                id: widthInput
+                size_hint_x: None
+                width: 50
+                input_filter: 'int'
+                multiline: False
+                on_text: app.root.ids.grid.setGridSize(int(self.text) if self.text.isdigit() else 160, int(heightInput.text) if heightInput.text.isdigit() else 81)
+            Label:
+                text: 'H:'
+                size_hint_x: None
+                width: 25
+            TextInput:
+                id: heightInput
+                size_hint_x: None
+                width: 50
+                input_filter: 'int'
+                multiline: False
+                on_text: app.root.ids.grid.setGridSize(int(widthInput.text) if widthInput.text.isdigit() else 160, int(self.text) if self.text.isdigit() else 81)    

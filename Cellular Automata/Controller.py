@@ -10,9 +10,8 @@ from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 from kivy.config import Config
+Config.set('graphics', 'fullscreen', 'auto')
 
-#Config.set('graphics', 'width', '800')
-#Config.set('graphics', 'height', '890')
 
 class UIRoot(FloatLayout):
     pass
@@ -21,37 +20,57 @@ class UIApp(App):
         return UIRoot()
 # Classes define the app root and orchestrate the running of the program.
 
+
 class GridWidget(Widget):
-    def __init__(self, rows=80, cols=80, cellSize=10, **kwargs):
+    def __init__(self, targetRows=81, targetCols=160, **kwargs):
 # Size of grid in number of cells and visual size of cells in pixels.
         super().__init__(**kwargs)
-        self.rows = rows
-        self.cols = cols
-        self.cellSize = cellSize
-        self.grid = np.random.choice([0, 1], size=(rows, cols), p=[0.5, 0.5])
+        self.targetRows = targetRows
+        self.targetCols = targetCols
+        self.cellSize = 10
+        self.grid = np.random.choice([0, 1], size=(targetRows, targetCols), p=[0.5, 0.5])
 # Sets each cells starting state with a 50% probability of being either alive or dead.
         self.running = False
         self.ruleName = "Class 4"
-        self.bind(pos=self.redraw, size=self.redraw)
-# Forces the grid to redraw when the widget is resized because the redraw
+        self.bind(pos=self.redraw, size=self._updateGridSize)
+# Forces the grid to resize the grid when the widget is resized because the redraw
 # method relies on widget size values to draw properly.
+        Clock.schedule_once(self._updateGridSize, 0)
         Clock.schedule_once(self.redraw, 0)
 # Ensures starting grid renders properly once relevant parameters are set.
 
+
     def redraw(self, *args):
         self.canvas.clear()
+        totalWidth = self.targetCols * self.cellSize
+        totalHeight = self.targetRows * self.cellSize
+# Calculate the total size of the grid in pixels
+        offsetX = (self.width - totalWidth) / 2
+        offsetY = (self.height - totalHeight) / 2
+# Offsets to centre the grid horizontally and vertically
         with self.canvas:
-            for i in range(self.rows):
-                for j in range(self.cols):
+            for i in range(self.targetRows):
+                for j in range(self.targetCols):
                     if self.grid[i, j] == 1:
                         Color(1, 1, 1, 1)
                     else:
                         Color(0, 0, 0, 1)
-                    x = self.x + j * self.cellSize
-                    y = self.y + self.rows * self.cellSize - (i+1) * self.cellSize
+                    x = self.x + offsetX + j * self.cellSize
+                    y = self.y + offsetY + self.targetRows * self.cellSize - (i + 1) * self.cellSize
                     Rectangle(pos=(x, y), size=(self.cellSize, self.cellSize))
 # Clears the widget canvas and redraws the cell rectangles based on the currently defined.
 # grid, called whenever the grid composition or widget geometry changes.
+
+    def _updateGridSize(self, *args):
+        availWidth = self.width
+        availHeight = self.height
+        cellByWidth = availWidth / self.targetCols
+        cellByHeight = availHeight / self.targetRows
+        self.cellSize = min(cellByWidth, cellByHeight)
+        self.redraw()
+# Called when the widget's size changes (window resize, fullscreen toggle).
+# Computes the optimal cell size so that the square grid fills the available
+# area while preserving the target number of rows and columns.
 
     def _computeNext(self):
         self.grid = applyRule(self.grid, self.ruleName)
@@ -82,10 +101,22 @@ class GridWidget(Widget):
 # Called on generation step button press.
 
     def randomise(self):
-        self.grid = np.random.choice([0, 1], size=(self.rows, self.cols), p=[0.5, 0.5])
+        self.grid = np.random.choice([0, 1], size=(self.targetRows, self.targetCols), p=[0.5, 0.5])
         self.redraw()
 # Same as the randomisation in initialisation, generates new starting conditions
 # whenever a new rule is set or when the randomise button is pressed.
+
+    def setGridSize(self, newCols, newRows):
+        newCols = max(1, newCols)
+        newRows = max(1, newRows)
+        if newCols == self.targetCols and newRows == self.targetRows:
+            return
+        self.targetCols = newCols
+        self.targetRows = newRows
+        self.grid = np.random.choice([0, 1], size=(self.targetRows, self.targetCols), p=[0.5, 0.5])
+        self._updateGridSize()
+        self.redraw()
+# Called whenever the height & width text boxes are modified and randomises + redraws
 
     def setRule(self, ruleName):
         self.ruleName = ruleName
