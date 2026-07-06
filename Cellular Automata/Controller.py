@@ -10,7 +10,7 @@ from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 from kivy.config import Config
-Config.set('graphics', 'fullscreen', 'auto')
+#Config.set('graphics', 'fullscreen', 'auto')
 
 
 class UIRoot(FloatLayout):

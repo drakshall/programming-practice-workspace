@@ -103,7 +103,7 @@ def testDensity(ruleName, steps, gridSize):
     densities = [np.mean(grid) for grid in history]   
     generations = range(len(history))
     print(f"\n=== Testing Density of {ruleName} Rule ===")
-    plt.figure(figsize=(15, 5))
+    plt.figure(figsize=(8, 5))
     plt.plot(generations, densities, linewidth=0.8, color='blue')
     plt.xlabel("Generation")
     plt.ylabel("Live cell density (fraction)")
@@ -117,7 +117,9 @@ def testDensity(ruleName, steps, gridSize):
     print(f"Min: {np.min(densities):.3f}, Max: {np.max(densities):.3f}")
 
 classes = ["Class 1","Class 2","Class 3","Class 4"]
-for rule in classes:
-    testDensity(rule, 1000, 50)
+testDensity("Class 4", 1000, 50)
+testDensity("Class 3", 1000, 50)
+testDensity("Class 1", 25, 50)
+testDensity("Class 2", 200, 50)
 
 

@@ -9,7 +9,7 @@ from kivy.clock import Clock
 from kivy.uix.button import Button
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))                                            # Sets the default file path to the directory where the files are present.
-Config.set('graphics', 'fullscreen', 'auto')                                                    # Ensures the program launched in fullscreen
+#Config.set('graphics', 'fullscreen', 'auto')                                                    # Ensures the program launched in fullscreen
 
 class SequenceApp(App):                                                                         # App root, when called by the python file loads the associated kivy file.
     pass

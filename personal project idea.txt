@@ -1,4 +1,5 @@
 Project idea
+
 - maybe a mining simulation game? player plays as a mine owner and each worker is simulated in regards to their social lives & relationship to the mine. 
 - 2D interface? Godot?
 - perhaps just simulate the material relations and disregard the social (insofar as they can be distinguished), taking account of the food workers need to survive, where the workers get that food from, the money paid by the mine/factory owners to workers & how that relates to their profits (simulate shareholder pressure?), the revenues and fixed + variable costs of the mine/factory.
@@ -23,7 +24,8 @@ workers could have an experience value that scales with time spent working & the
 implementation concepts:
 
 
-# -------------------------------------------------------------------------------------- #
+#--------------------------------------------------------------------------------------#
+
 
 NEW PHASE
 
@@ -55,3 +57,43 @@ well as smaller ripples from the player's actions panning out from the first pha
 
 
 need to do some reading & talk to some old people
+
+
+#--------------------------------------------------------------------------------------#
+
+
+4/7/26 (this is where i started keeping dates, the earlier sections are a few months older)
+NEWER PHASE
+post Geevor visit
+
+my main goal here is to try and nail down some mechanical concepts and a narrative framing for the first phase/v1.0 of the project
+
+the core focus of the game will be on the relation between the archetypical cornish mine and town during the birth of capitalist modernity
+the mine will be modelled loosely on the history of Geevor/North Levant but transposed ~40-50 years backwards and blended with the social histories of other towns in the west penwith area
+Geevor was built in the 1910s almost upon the ruins of the old north levant mine which operated from 1851 - 1891
+the ruins of old north levant are visible from geevor and create a really interesting sort of gradient from old to new mining infrastructure
+i want to depict a similar gradient of history but with an 18th century mine in place of old levant then have the mine the player manages be a mid 19th century revival of the same site
+this lets me cram some extra historical content into the game as well as providing a natural framing device.
+
+-------- narrative --------
+
+the narrative will start with the player choosing one of three(?) backgrounds, each managerial positions in different British industries as well as a simple character creation system allowing players to enter a name and choose an appearence preset (sort of like sunless skies?).
+These backgrounds will represent different kinds of commerce characteristic of britain's rapidly industrialising economy, and will bring with them unique choices & flavour text in the early parts of the game 
+(e.g. a maritime background might give additional shipping choices from their time at sea, or a factory background might have contacts capable of acquiring better or cheaper industrial equipment, etc.)
+
+the player character will be a 19th century 'corporate climber' who has been tasked by the investment firm/bank to oversee the development of the Cornish Mine after their acquisition of the site.
+This provides a natural framing to introduce the player character to various mining concepts as they're a sort of fish out of water being shown the ropes from a very top-down perspective.
+there will be a cast of archetypal characters that are conversed with and personify different elements of the game's social world. 
+For instance important figures in the town like the parish priest, head(s) of town council, and figures representing the different 'industries' of the town like fishing and metalworking will be characters the player can interact with
+there will also be 'foreman' type figures within the social structure of the mine itself which will get similar character treatment.
+
+-------- gameplay --------
+
+structurally the game will be divided into three orders of cycles and take place over a set time (a year?)
+There will be monthly, weekly, and daily cycles. A day should take something like <5 minutes. there will be active pause and time controls a la paradox grand strat games (or maybe stop during daily segments?)
+the weekly cycle will be the principle decision making point.
+to begin, work days will include monday -> saturday, sunday is a day of rest for the workers and maintenance/socialising/decision making for the mine manager
+
+The daily cycle itself is currently quite subject to change. the working concept is dividing each day into 5 segments, two working shifts with mossel (lunch) inbetween, capped by shift start/end segments
+
+the main kind of mining gameplay will be directing the stoping of existing shafts and developing of new shafts
