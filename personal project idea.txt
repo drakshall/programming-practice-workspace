@@ -62,20 +62,26 @@ need to do some reading & talk to some old people
 #--------------------------------------------------------------------------------------#
 
 
-4/7/26 (this is where i started keeping dates, the earlier sections are a few months older)
+4/7/26 - 8/7/26 (this is where i started keeping dates, the earlier sections are a few months older)
 NEWER PHASE
 post Geevor visit
 
 my main goal here is to try and nail down some mechanical concepts and a narrative framing for the first phase/v1.0 of the project
 
-the core focus of the game will be on the relation between the archetypical cornish mine and town during the birth of capitalist modernity
-the mine will be modelled loosely on the history of Geevor/North Levant but transposed ~40-50 years backwards and blended with the social histories of other towns in the west penwith area
+-------- themes --------
+
+the core focus of the game will be on the relation between a sort of fictional, platonic ideal 'universal coastal cornish mining village' during the birth of capitalist modernity.
+I want to explore the kind of social transformation driven by the ceaselessly accelerating logic of techno-capital by focussing intensely on one of its principle birthplaces.
+I want to put the player in the position of a figure that personifies the social-historical-political-economic 'engine' that directed this transformation, the mine manager.
+This is because the mine manager sits at a sort of social crossroads between the macro structure of international finance and the state, as well as the micro structure of the town and mine, and he must navigate that conflict of interest with regard to the responsibility vested in him, both by the community that serves him and the financial structures that he serves.
+
+-------- narrative --------
+
+the mine will be modelled loosely on the history of Geevor/North Levant but transposed ~40-50 years backwards and blended with the social histories of other towns in the west penwith & lizard peninsulas.
 Geevor was built in the 1910s almost upon the ruins of the old north levant mine which operated from 1851 - 1891
 the ruins of old north levant are visible from geevor and create a really interesting sort of gradient from old to new mining infrastructure
 i want to depict a similar gradient of history but with an 18th century mine in place of old levant then have the mine the player manages be a mid 19th century revival of the same site
 this lets me cram some extra historical content into the game as well as providing a natural framing device.
-
--------- narrative --------
 
 the narrative will start with the player choosing one of three(?) backgrounds, each managerial positions in different British industries as well as a simple character creation system allowing players to enter a name and choose an appearence preset (sort of like sunless skies?).
 These backgrounds will represent different kinds of commerce characteristic of britain's rapidly industrialising economy, and will bring with them unique choices & flavour text in the early parts of the game 
@@ -97,3 +103,25 @@ to begin, work days will include monday -> saturday, sunday is a day of rest for
 The daily cycle itself is currently quite subject to change. the working concept is dividing each day into 5 segments, two working shifts with mossel (lunch) inbetween, capped by shift start/end segments
 
 the main kind of mining gameplay will be directing the stoping of existing shafts and developing of new shafts
+the mining process will essentially be a series of timers associated with different actions that are modified by manifold conditions. for the player this timer will be represented as a fancy looking animation that will 
+change with some of the associated conditions.
+
+-------- visual concepts --------
+
+In my minds eye the mining village is sort of like a hybrid between Pendeen, Newlyn, and the various tiny fishing villages that exist all around the lizard. 
+a clifftop mine next to a village/small town that snakes down a river valley into a small cove from the top of the cliff, surrounded by hilly pasture and hardy farmland.
+
+the work done by studio Ghibli on the movie Laputa could be a rich source to draw from, much of the architecture and landscapes in that film draw from a field trip the animation team did to Wales in the 80s 
+As much of the welsh mining industry shares substantial lineage with Cornish mining in terms of technologies and infrastructure, not to mention the celtic connection it should be fertile ground for inspiration.
+
+-------- closing thoughts --------
+
+Calling it here for this phase, i have enough of a framework to begin some preliminary programming & a strong basis to pursue further research
+The next section of this document will be a research report on Cornish mining with a particular eye for how it could be gamified. much of the actual mechanical functionality is still floating around my head in a sort of superposition.
+I need to pin down a concrete scope for the first actual development phase to understand my technical requirements.
+
+the two key possibilities in my mind are creating a museum game, ie something they can stick on a screen in a heritage site somewhere as an educational tool, with a core focus on exploring the sort of immediate mechanical and social processes of mining. and creating a fully fledged narrative focussed game. there's some conflict in these goals but i can see the former flowing pretty naturally into the latter, especially if the former is made as a kind of vertical slice or prototype.
+
+
+
+
