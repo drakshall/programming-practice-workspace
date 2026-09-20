@@ -120,7 +120,8 @@ Calling it here for this phase, i have enough of a framework to begin some preli
 The next section of this document will be a research report on Cornish mining with a particular eye for how it could be gamified. much of the actual mechanical functionality is still floating around my head in a sort of superposition.
 I need to pin down a concrete scope for the first actual development phase to understand my technical requirements.
 
-the two key possibilities in my mind are creating a museum game, ie something they can stick on a screen in a heritage site somewhere as an educational tool, with a core focus on exploring the sort of immediate mechanical and social processes of mining. and creating a fully fledged narrative focussed game. there's some conflict in these goals but i can see the former flowing pretty naturally into the latter, especially if the former is made as a kind of vertical slice or prototype.
+the two key possibilities in my mind are creating a museum game, ie something they can stick on a screen in a heritage site somewhere as an educational tool, with a core focus on exploring the sort of immediate mechanical and social processes of mining.
+and creating a fully fledged narrative focussed game. there's some conflict in these goals but i can see the former flowing pretty naturally into the latter, especially if the former is made as a kind of vertical slice or prototype.
 
 
 
