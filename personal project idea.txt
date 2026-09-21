@@ -123,5 +123,25 @@ I need to pin down a concrete scope for the first actual development phase to un
 the two key possibilities in my mind are creating a museum game, ie something they can stick on a screen in a heritage site somewhere as an educational tool, with a core focus on exploring the sort of immediate mechanical and social processes of mining. and creating a fully fledged narrative focussed game. there's some conflict in these goals but i can see the former flowing pretty naturally into the latter, especially if the former is made as a kind of vertical slice or prototype.
 
 
+#--------------------------------------------------------------------------------------#
+
+
+9/7/26
+
+Here i want to try and map out the mining process in my own words to try and force the ideas to crystalise
+I also need to try and understand the financial business structures behind the mines because from my understanding its somewhat atypical compared to modern joint stock companies
+
+The process begins with surveying, geologists and dowsers, looking for locations likely to contain ores based on known geological conditions, surface deposits, and sometimes mysticism.
+from there exploratory shafts are sunk to assess the potential of a site despite the cost simply because of the risk involved (related to the financial structure of mining ventures of the time)
+
+miners dug levels (tunnels) and shafts to reach the ore, at first with manual tools like picks, hammers, borers(chisels), and gads (wedges)
+later on gunpowder and eventually dynamite and pneumatic tools would see widespread use
+
+the main forms of transit up and down the mineshaft back then were animal driven whims or water and later steam driven winches with kibbles (large iron containers) for ores and series of 
+ladders and platforms for the miners themselves (later superseded by the man engine and more modern elevator systems).
+Ore was moved from stopes toward shafts using handbarrows or tramways which had various kinds of propulsion in different time periods.
+Once reaching the surface ore would be transported to be dressed.
+
+TIN STREAMING.
 
 
