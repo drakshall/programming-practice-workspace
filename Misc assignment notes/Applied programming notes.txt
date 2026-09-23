@@ -1,0 +1,9 @@
+Applied programming notes
+
+design pattern article core theme: design patterns aren't a passing fad, they've already been so woven into the fabric of the field and discipline which has dissolved them into the 'background radiation' of informal best practices.
+
+essentially just:
+Fish 1: How's the water
+Fish 2: What the hell is water
+
+AI doesn't meaningfully change this paradigm, just pushes the source of the patterns further downstream of the developer and puts it behind a new sort of interface

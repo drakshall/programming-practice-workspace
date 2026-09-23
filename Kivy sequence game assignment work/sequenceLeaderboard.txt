@@ -4,3 +4,4 @@ rum,21
 JON,22
 TUM,34
 YUM,13
+FUN,24
